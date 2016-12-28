@@ -43,6 +43,23 @@ add_library( # Sets the name of the library.
              # file are automatically included.
              src/main/cpp/native-lib1.cpp )
 
+add_library( # Sets the name of the library.
+             test-lib
+
+             # Sets the library as a shared library.
+             SHARED
+
+             # Provides a relative path to your source file(s).
+             # Associated headers in the same location as their source
+             # file are automatically included.
+             external/TEST_LIB/test.cpp
+             external/TEST_LIB/main.cpp
+              )
+
+#include_directories(
+#                    external/TEST_LIB/test.cpp
+#                    )
+
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because system libraries are included in the search path by
 # default, you only need to specify the name of the public NDK library
@@ -64,6 +81,9 @@ target_link_libraries( # Specifies the target library.
                        gllib
                        native-lib
                        native-lib1
+                       #test-lib
+
+                       # 以下就是Android平台提供的库直接写名字就行了。官方文档有说明哪些。
                        EGL
                        GLESv2
 

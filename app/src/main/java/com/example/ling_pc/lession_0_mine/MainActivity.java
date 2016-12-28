@@ -10,13 +10,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        /*setContentView(R.layout.activity_main);
         // Example of a call to a native method
         TextView tv = (TextView) findViewById(R.id.sample_text);
-        tv.setText(stringFromJNI1());
+        tv.setText(stringFromJNI1());*/
 
         //mView = new GLView(getApplication());
         //setContentView(mView);
+
+        setContentView(R.layout.activity_main);
+        // Example of a call to a native method
+        TextView tv = (TextView) findViewById(R.id.sample_text);
+        tv.setText(testlibGet());
     }
 
     /**
@@ -25,10 +31,12 @@ public class MainActivity extends AppCompatActivity {
      */
     public native String stringFromJNI();
     public native String stringFromJNI1();
+    public native String testlibGet();
 
     // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
         System.loadLibrary("native-lib1");
+        System.loadLibrary("test-lib");
     }
 }

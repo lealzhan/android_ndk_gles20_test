@@ -19,7 +19,9 @@ add_library( # Sets the name of the library.
              # Provides a relative path to your source file(s).
              # Associated headers in the same location as their source
              # file are automatically included.
-             src/main/cpp/gl_code.cpp )
+             src/main/cpp/gl_code.cpp
+             src/main/cpp/STL_READER/stlfile.cpp
+             )
 
 add_library( # Sets the name of the library.
              native-lib

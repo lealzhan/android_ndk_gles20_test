@@ -16,13 +16,13 @@ public class MainActivity extends AppCompatActivity {
         TextView tv = (TextView) findViewById(R.id.sample_text);
         tv.setText(stringFromJNI1());*/
 
-        //mView = new GLView(getApplication());
-        //setContentView(mView);
+        mView = new GLView(getApplication());
+        setContentView(mView);
 
-        setContentView(R.layout.activity_main);
+       /* setContentView(R.layout.activity_main);
         // Example of a call to a native method
         TextView tv = (TextView) findViewById(R.id.sample_text);
-        tv.setText(testlibGet());
+        tv.setText(testlibGet());*/
     }
 
     /**

@@ -15,6 +15,9 @@
 #include <math.h>
 #include <string>
 
+//#include "../../external/STL_READER/stlfile.h"
+#include "STL_READER/stlfile.h"
+
 #define  LOG_TAG    "gllib"
 #define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
 #define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
@@ -110,6 +113,18 @@ GLuint createProgram(const char* pVertexSource, const char* pFragmentSource) {
 GLuint gProgram;
 GLuint gvPositionHandle;
 
+const GLfloat gTriangleVertices[] = { 0.0f, 0.5f, -0.5f, -0.5f,
+                                      0.5f, -0.5f };
+
+void readSTL()
+{
+    //todo
+    STLFile* stl = new STLFile("test_file.stl");
+    size_t a = stl->getNumTris();
+    // STLFile stl;
+    return;
+}
+
 bool setupGraphics(int w, int h) {
     printGLString("Version", GL_VERSION);
     printGLString("Vendor", GL_VENDOR);
@@ -129,11 +144,13 @@ bool setupGraphics(int w, int h) {
 
     glViewport(0, 0, w, h);
     checkGlError("glViewport");
+
+    readSTL();
+
     return true;
 }
 
-const GLfloat gTriangleVertices[] = { 0.0f, 0.5f, -0.5f, -0.5f,
-                                      0.5f, -0.5f };
+
 
 void renderFrame() {
     static float grey;
